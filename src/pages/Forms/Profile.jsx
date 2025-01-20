@@ -1,26 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../../components/Nav";
 import { Link } from "react-router-dom";
 import { BsPerson } from "react-icons/bs";
 
 const Profile = () => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [contactNumber, setContactNumber] = useState("")
+  const [city, setCity] = useState("")
+
   return (
     <div className="bg-background relative flex h-screen w-full">
       <Nav />
-      <nav className=" h-full w-[19.5vw] pt-[7vw] flex flex-col items-center">
+      <header className="h-full w-[19.5vw] pt-[7vw] flex flex-col items-center">
         <h1 className="text-2xl mb-7">Account Center</h1>
         <Link className="text-lg flex items-center gap-2">
           <BsPerson size={23} />
           Personal Details
         </Link>
-      </nav>
-      <div className="flex-1 h-full pt-[9vw] pl-[6vw] ">
+      </header>
+      <main className="flex-1 h-full pt-[9vw] pl-[6vw] ">
         <div className="flex gap-8 items-center">
           <div className="h-28 w-28 rounded-full overflow-hidden ">
             <img
               className="h-full w-full object-cover"
               src="https://lh3.googleusercontent.com/a/ACg8ocKsOVls62ud6g3UzYN22GSg6FmVcbbAjIVevxGkmkKAJ7ed-EE=s96-c"
-              alt=""
+              alt="Profile of Dhruv Raghuvanshi"
             />
           </div>
           <div className="">
@@ -41,6 +46,8 @@ const Profile = () => {
                 Full Name
               </label>
               <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 type="text"
                 name="fullName"
                 id="fullName"
@@ -55,6 +62,8 @@ const Profile = () => {
                 Email
               </label>
               <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 name="email"
                 id="email"
@@ -71,6 +80,8 @@ const Profile = () => {
                 Contact Number
               </label>
               <input
+                value={contactNumber}
+                onChange={(e) => setName(e.target.value)}
                 type="text"
                 name="contactNumber"
                 id="contactNumber"
@@ -85,6 +96,7 @@ const Profile = () => {
                 City
               </label>
               <input
+              value={city}
                 type="text"
                 name="city"
                 id="city"
@@ -94,8 +106,14 @@ const Profile = () => {
           </div>
         </div>
 
-        <button className="absolute right-[12.45vw] bottom-[10vw] bg-[#d02a2a] text-white px-3 rounded-md py-1" >Logout</button>
-      </div>
+        <button 
+          type="button" 
+          aria-label="Logout" 
+          className="absolute right-[12.45vw] bottom-[10vw] bg-[#d02a2a] text-white px-3 rounded-md py-1"
+        >
+          Logout
+        </button>
+      </main>
     </div>
   );
 };
