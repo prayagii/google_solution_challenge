@@ -2,7 +2,7 @@ import React from 'react'
 
 const JobSearch = () => {
   return (
-    <div>JobSearch</div>
+    <div>Job page</div>
   )
 }
 
